@@ -1,0 +1,43 @@
+## You should already have created a telegram bot, if not, follow instructions to create one
+
+## The following lines of code is to get the information of your bot
+>>> import telepot
+>>> bot = telepot.Bot('<TOKEN>')
+>>> botInfo = bot.getMe()
+>>> print(botInfo)
+
+Note: replace <TOKEN> with the telegram token your bot has. BotFather should have given you a token looking something like 123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ
+
+>>> print(botInfo)
+This line of code should print a dictionary like this: {'id': 123456789, 'is_bot': True, 'first_name': 'BotName', 'username': 'BotUsername'}
+The 'id' index stores your telegram bot's ID, which will be used in the later part
+
+
+## Getting your own information
+>>> from pprint import pprint 
+>>> ownInfo = bot.getUpdates()
+>>> pprint(ownInfo)
+
+Note that you do not have to use pprint, just that it looks cleaner on your console and is easier for you to see
+The console should output something like such:
+[{'message': {'chat': {'first_name': 'Yang Zhi',
+                       'id': 987654321,
+                       'type': 'private',
+                       'username': 'yourOwnUserName'},
+              'date': 1568885504,
+              'from': {'first_name': 'Yang Zhi',
+                       'id': 987654321,
+                       'is_bot': False,
+                       'language_code': 'en',
+                       'username': 'yourOwnUserName'},
+              'message_id': 11,
+              'text': 'Hello'},
+  'update_id': 815634324}]
+
+### The 'id': 987654321 is the ID of the person/whoever messaging the bot
+
+
+
+Referenced from: 
+https://core.telegram.org/bots/api
+https://telepot.readthedocs.io/en/latest/#installation
